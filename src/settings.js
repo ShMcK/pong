@@ -11,3 +11,5 @@ export const p2 = {
     down: 40
   }
 };
+
+export const fps = 30;

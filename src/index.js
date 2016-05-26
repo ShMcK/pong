@@ -1,9 +1,8 @@
 import Game from './Game';
 require('./game.css');
+import {fps} from './settings';
 
 const game = new Game();
-
-const fps = 30;
 
 function gameLoop() {
   game.render();
