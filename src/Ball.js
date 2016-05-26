@@ -10,8 +10,14 @@ export default class Ball {
   draw(p) {
     p.fillRect(this.x, this.y, this.width, this.height);
   }
-  render() {
+  render(height, width) {
     this.x += this.vx;
     this.y += this.vy;
+
+    if (this.x > width || this.x + this.width < 0) {
+        this.vx = -this.vx;
+    } else if (this.y > height || this.y + this.height < 0) {
+        this.vy = -this.vy;
+    }
   }
 }
