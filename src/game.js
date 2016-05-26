@@ -1,5 +1,6 @@
 import Paddle from './Paddle';
-import KeyListener from './KeyListener'
+import KeyListener from './KeyListener';
+import {p1, p2} from './settings';
 
 export default class Game {
   constructor() {
@@ -35,7 +36,7 @@ export default class Game {
   render() {
     if (this.paused) { return; }
 
-    this.movePaddle(this.player1, 65, 90); // a, z
-    this.movePaddle(this.player2, 38, 40); // up, down
+    this.movePaddle(this.player1, p1.keys.up, p1.keys.down);
+    this.movePaddle(this.player2, p2.keys.up, p2.keys.down);
   }
 }
