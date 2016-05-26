@@ -40,6 +40,9 @@ export default class Ball {
       }
     }
   }
+  goal() {
+    console.log('goal!');
+  }
   wallCollision(height) {
     const hitTop = this.vy < 0 && this.y < 0;
     const hitBottom = this.vy > 0 && this.y + this.height > height;
@@ -53,5 +56,11 @@ export default class Ball {
 
     this.paddleCollision(player1, player2);
     this.wallCollision(height);
+
+    if (this.x >= width) {
+      this.goal();
+    } else if (this.x + this.width <= 0) {
+      this.goal();
+    }
   }
 }
