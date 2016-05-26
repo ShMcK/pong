@@ -45,6 +45,8 @@ export default class Ball {
     this.y = player.y + player.height / 2;
     this.vy = Math.floor(Math.random() * 12 - 6);
     this.vx = 7 - Math.abs(this.vy);
+
+    player.score++;
   }
   wallCollision(height) {
     const hitTop = this.vy < 0 && this.y < 0;
