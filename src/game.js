@@ -1,5 +1,5 @@
 import Paddle from './Paddle';
-import KeyListener from './KeyListener';
+import KeyListener from './KeyListener'
 
 export default class Game {
   constructor() {
@@ -24,7 +24,18 @@ export default class Game {
     this.player1.draw(this.context);
     this.player2.draw(this.context)
   }
+  movePaddle(player, upKey, downKey) {
+    if (this.keys.isPressed(downKey)) {
+      console.log(player)
+      player.y = Math.min(this.height - player.height, player.y + 4);
+    } else if (this.keys.isPressed(upKey)) {
+      player.y = Math.max(0, player.y - 4);
+    }
+  }
   render() {
     if (this.paused) { return; }
+
+    this.movePaddle(this.player1, 65, 90); // a, z
+    this.movePaddle(this.player2, 38, 40); // up, down
   }
 }
