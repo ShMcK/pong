@@ -1,6 +1,7 @@
 import Paddle from './Paddle';
 import KeyListener from './KeyListener';
 import {p1, p2} from './settings';
+import Ball from './Ball';
 
 export default class Game {
   constructor() {
@@ -17,6 +18,8 @@ export default class Game {
     this.player2.y = (this.height / 2) - (this.player2.height / 2);
 
     this.keys = new KeyListener();
+
+    this.ball = new Ball();
   }
   draw() {
     this.context.clearRect(0, 0, this.width, this.height);
