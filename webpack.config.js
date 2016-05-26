@@ -8,7 +8,7 @@ const PATHS = {
 
 module.exports = {
 	entry: {
-		src: join(PATHS.src, 'game.js')
+		src: join(PATHS.src, 'index.js')
 	},
 	resolve: {
 		extensions: ['', '.js']
