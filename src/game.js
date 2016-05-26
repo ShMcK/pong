@@ -48,7 +48,7 @@ export default class Game {
     this.movePaddle(this.player1, p1.keys.up, p1.keys.down);
     this.movePaddle(this.player2, p2.keys.up, p2.keys.down);
 
-    this.ball.render(this.height, this.width);
+    this.ball.render(this.height, this.width, this.player1, this.player2);
 
   }
 }
