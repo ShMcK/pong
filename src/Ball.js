@@ -40,8 +40,11 @@ export default class Ball {
       }
     }
   }
-  goal() {
-    console.log('goal!');
+  goal(player, width) {
+    this.x = width / 2;
+    this.y = player.y + player.height / 2;
+    this.vy = Math.floor(Math.random() * 12 - 6);
+    this.vx = 7 - Math.abs(this.vy);
   }
   wallCollision(height) {
     const hitTop = this.vy < 0 && this.y < 0;
@@ -58,9 +61,9 @@ export default class Ball {
     this.wallCollision(height);
 
     if (this.x >= width) {
-      this.goal();
+      this.goal(player1, width);
     } else if (this.x + this.width <= 0) {
-      this.goal();
+      this.goal(player2, width);
     }
   }
 }
