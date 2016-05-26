@@ -5,9 +5,12 @@ export default class KeyListener {
     document.addEventListener('keyup', this.keyup.bind(this));
   }
   keydown(event) {
-    console.log('keydown', event);
+    this.pressedKeys[event.keyCode] = true;
   }
   keyup(event) {
-    console.log('keyup', event);
+    this.pressedKeys[event.keyCode] = false;
+  }
+  isPressed(key) {
+    return !!this.pressedKeys[key]; // true or false
   }
 }
