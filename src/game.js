@@ -17,3 +17,15 @@ class Game {
     if (this.paused) { return; }
   }
 }
+
+var game = new Game();
+
+const fps = 30;
+
+function gameLoop() {
+  game.render();
+  game.draw();
+  setTimeout(gameLoop, fps);
+}
+
+gameLoop();
