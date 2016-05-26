@@ -13,4 +13,11 @@ export default class KeyListener {
   isPressed(key) {
     return !!this.pressedKeys[key]; // true or false
   }
+  addKeyPressListener(keyCode, callback) {
+    document.addEventListener('keypress', (event) => {
+      if (event.keyCode === keyCode) {
+        callback(event);
+      }
+    });
+  }
 }
