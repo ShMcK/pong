@@ -20,13 +20,19 @@ export default class Game {
     this.keys = new KeyListener();
 
     this.ball = new Ball();
+    this.ball.x = this.width/2;
+    this.ball.y = this.height/2;
+    this.ball.vy = Math.floor(Math.random()*12 - 6);
+    this.ball.vx = 7 - Math.abs(this.ball.vy);
   }
   draw() {
     this.context.clearRect(0, 0, this.width, this.height);
     this.context.fillRect(this.width/2, 0, 2, this.height);
 
     this.player1.draw(this.context);
-    this.player2.draw(this.context)
+    this.player2.draw(this.context);
+
+    this.ball.draw(this.context);
   }
   movePaddle(player, upKey, downKey) {
     if (this.keys.isPressed(downKey)) {
@@ -41,5 +47,8 @@ export default class Game {
 
     this.movePaddle(this.player1, p1.keys.up, p1.keys.down);
     this.movePaddle(this.player2, p2.keys.up, p2.keys.down);
+
+    this.ball.render();
+
   }
 }
