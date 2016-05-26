@@ -7,4 +7,11 @@ export default class Ball {
     this.width = 5;
     this.height = 5;
   }
+  draw(p) {
+    p.fillRect(this.x, this.y, this.width, this.height);
+  }
+  render() {
+    this.x += this.vx;
+    this.y += this.vy;
+  }
 }
