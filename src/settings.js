@@ -13,3 +13,8 @@ export const p2 = {
 };
 
 export const fps = 30;
+
+export const paddle = {
+  height: 50,
+  width: 5
+};
