@@ -10,6 +10,10 @@ export default class Ball {
 		this.vx = 0;
 		this.vy = 0;
 		this.size = ball.size;
+		this.wallCollisionSound = [
+			new Audio('sounds/pong-01.wav'),
+			new Audio('sounds/pong-02.wav')
+		];
 		this.paddleCollisionSound = new Audio('sounds/pong-03.wav');
 	}
 	draw(p) {
@@ -68,6 +72,7 @@ export default class Ball {
 		const hitBottom = this.vy > 0 && this.y + this.size > height;
 		if (hitTop || hitBottom) {
 			this.vy = -this.vy;
+			this.wallCollisionSound[Math.floor(Math.random() * 2)].play();
 		}
 	}
 	render(height, width, player1, player2) {
