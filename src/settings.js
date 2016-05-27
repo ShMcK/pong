@@ -1,16 +1,18 @@
+import keys from './keys';
+
 export const p1 = {
 	name: '1',
 	keys: {
-		up: 65,
-		down: 90
+		up: keys.a,
+		down: keys.z,
 	}
 };
 
 export const p2 = {
 	name: '2',
 	keys: {
-		up: 38,
-		down: 40
+		up: keys.up,
+		down: keys.down,
 	}
 };
 

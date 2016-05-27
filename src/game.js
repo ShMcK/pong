@@ -4,10 +4,12 @@ import {
 	p1,
 	p2,
 	paddle,
-	scoreBoard
+	scoreBoard,
+	key
 } from './settings';
 import Ball from './Ball';
 import ScoreBoard from './ScoreBoard';
+import keys from './keys';
 
 export default class Game {
 	constructor() {
@@ -28,7 +30,7 @@ export default class Game {
 		this.scoreBoard2 = new ScoreBoard(this.width * 3 / 4, scoreBoard.fromTop);
 
 		this.keys = new KeyListener();
-		this.keys.addKeyPressListener(32, () => {
+		this.keys.addKeyPressListener(keys.spaceBar, () => {
 			this.paused = !this.paused;
 		});
 
@@ -72,7 +74,4 @@ export default class Game {
 		this.scoreBoard1.score = this.player1.score;
 		this.scoreBoard2.score = this.player2.score;
 	}
-}
-ayer2.score;
-}
 }
