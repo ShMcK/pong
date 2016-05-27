@@ -16,6 +16,7 @@ export default class Game {
 		this.height = canvas.height;
 		this.context = canvas.getContext('2d');
 		this.context.fillStyle = 'white';
+		this.context.font = "30px Helvetica";
 		this.paused = false;
 
 		this.player1 = new Paddle(p1.name, paddle.gap, 0);

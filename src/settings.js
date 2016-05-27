@@ -27,5 +27,5 @@ export const ball = {
 };
 
 export const scoreBoard = {
-	fromTop: 25
+	fromTop: 45
 };
