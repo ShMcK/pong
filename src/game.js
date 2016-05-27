@@ -5,6 +5,7 @@ import {
 	p2
 } from './settings';
 import Ball from './Ball';
+import ScoreBoard from './ScoreBoard';
 
 export default class Game {
 	constructor() {
@@ -17,8 +18,10 @@ export default class Game {
 
 		this.player1 = new Paddle(p1.name, 10, 0);
 		this.player1.y = (this.height / 2) - (this.player1.height / 2);
+		this.scoreBoard1 = new ScoreBoard(this.width / 4, 25);
 		this.player2 = new Paddle(p2.name, this.width - 14, 0);
 		this.player2.y = (this.height / 2) - (this.player2.height / 2);
+		this.scoreBoard2 = new ScoreBoard(this.width * 3 / 4, 25);
 
 		this.keys = new KeyListener();
 
@@ -36,6 +39,9 @@ export default class Game {
 		this.player2.draw(this.context);
 
 		this.ball.draw(this.context);
+
+		this.scoreBoard1.draw(this.context);
+		this.scoreBoard2.draw(this.context);
 	}
 	movePaddle(player, upKey, downKey) {
 		if (this.keys.isPressed(downKey)) {
@@ -54,5 +60,7 @@ export default class Game {
 
 		this.ball.render(this.height, this.width, this.player1, this.player2);
 
+		this.scoreBoard1.score = this.player1.score;
+		this.scoreBoard2.score = this.player2.score;
 	}
 }
