@@ -39,9 +39,11 @@ export default class Game {
 		this.context.clearRect(0, 0, this.width, this.height);
 		this.context.fillRect(this.width / 2, 0, 2, this.height);
 
+		this.context.fillStyle = 'yellow';
 		this.player1.draw(this.context);
 		this.player2.draw(this.context);
 
+		this.context.fillStyle = 'white';
 		this.ball.draw(this.context);
 
 		this.scoreBoard1.draw(this.context);
