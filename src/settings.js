@@ -23,7 +23,7 @@ export const paddle = {
 };
 
 export const ball = {
-	size: 10
+	size: 5
 };
 
 export const scoreBoard = {
