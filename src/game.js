@@ -34,18 +34,21 @@ export default class Game {
 			this.paused = !this.paused;
 		});
 		this.keys.addKeyPressListener(keys.leftFire, () => {
-			this.addBall();
+			this.addBall(-1);
+		});
+		this.keys.addKeyPressListener(keys.rightFire, () => {
+			this.addBall(1)
 		});
 
 		this.balls = [];
 		this.addBall();
 	}
-	addBall() {
+	addBall(direction = 1) {
 		let ball = new Ball();
 		ball.x = this.width / 2;
 		ball.y = this.height / 2;
 		ball.vy = Math.floor(Math.random() * 12 - 6);
-		ball.vx = 7 - Math.abs(ball.vy);
+		ball.vx = direction * (7 - Math.abs(ball.vy));
 		this.balls.push(ball);
 	}
 	draw() {
