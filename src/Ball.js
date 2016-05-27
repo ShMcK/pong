@@ -1,5 +1,6 @@
 import {
-	p1
+	p1,
+	ball
 } from './settings';
 
 export default class Ball {
@@ -8,8 +9,8 @@ export default class Ball {
 		this.y = 0;
 		this.vx = 0;
 		this.vy = 0;
-		this.width = 5;
-		this.height = 5;
+		this.width = ball.size;
+		this.height = ball.size;
 	}
 	draw(p) {
 		p.fillRect(this.x, this.y, this.width, this.height);

@@ -2,7 +2,9 @@ import Paddle from './Paddle';
 import KeyListener from './KeyListener';
 import {
 	p1,
-	p2
+	p2,
+	paddle,
+	scoreBoard
 } from './settings';
 import Ball from './Ball';
 import ScoreBoard from './ScoreBoard';
@@ -16,12 +18,13 @@ export default class Game {
 		this.context.fillStyle = 'white';
 		this.paused = false;
 
-		this.player1 = new Paddle(p1.name, 10, 0);
+		this.player1 = new Paddle(p1.name, paddle.gap, 0);
 		this.player1.y = (this.height / 2) - (this.player1.height / 2);
-		this.scoreBoard1 = new ScoreBoard(this.width / 4, 25);
-		this.player2 = new Paddle(p2.name, this.width - 14, 0);
+		this.scoreBoard1 = new ScoreBoard(this.width / 4, scoreBoard.fromTop);
+
+		this.player2 = new Paddle(p2.name, this.width - paddle.gap - paddle.width, 0);
 		this.player2.y = (this.height / 2) - (this.player2.height / 2);
-		this.scoreBoard2 = new ScoreBoard(this.width * 3 / 4, 25);
+		this.scoreBoard2 = new ScoreBoard(this.width * 3 / 4, scoreBoard.fromTop);
 
 		this.keys = new KeyListener();
 

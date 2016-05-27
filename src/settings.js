@@ -17,6 +17,15 @@ export const p2 = {
 export const fps = 30;
 
 export const paddle = {
-	height: 50,
-	width: 5
+	height: 100,
+	width: 10,
+	gap: 10
+};
+
+export const ball = {
+	size: 10
+};
+
+export const scoreBoard = {
+	fromTop: 25
 };
