@@ -28,6 +28,9 @@ export default class Game {
 		this.scoreBoard2 = new ScoreBoard(this.width * 3 / 4, scoreBoard.fromTop);
 
 		this.keys = new KeyListener();
+		this.keys.addKeyPressListener(32, () => {
+			this.paused = !this.paused;
+		});
 
 		this.ball = new Ball();
 		this.ball.x = this.width / 2;
@@ -69,4 +72,7 @@ export default class Game {
 		this.scoreBoard1.score = this.player1.score;
 		this.scoreBoard2.score = this.player2.score;
 	}
+}
+ayer2.score;
+}
 }
