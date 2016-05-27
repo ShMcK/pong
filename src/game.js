@@ -33,12 +33,20 @@ export default class Game {
 		this.keys.addKeyPressListener(keys.spaceBar, () => {
 			this.paused = !this.paused;
 		});
+		this.keys.addKeyPressListener(keys.leftFire, () => {
+			this.addBall();
+		});
 
-		this.ball = new Ball();
-		this.ball.x = this.width / 2;
-		this.ball.y = this.height / 2;
-		this.ball.vy = Math.floor(Math.random() * 12 - 6);
-		this.ball.vx = 7 - Math.abs(this.ball.vy);
+		this.balls = [];
+		this.addBall();
+	}
+	addBall() {
+		let ball = new Ball();
+		ball.x = this.width / 2;
+		ball.y = this.height / 2;
+		ball.vy = Math.floor(Math.random() * 12 - 6);
+		ball.vx = 7 - Math.abs(ball.vy);
+		this.balls.push(ball);
 	}
 	draw() {
 		this.context.clearRect(0, 0, this.width, this.height);
@@ -49,7 +57,9 @@ export default class Game {
 		this.player2.draw(this.context);
 
 		this.context.fillStyle = 'white';
-		this.ball.draw(this.context);
+		this.balls.forEach((ball) => {
+			ball.draw(this.context);
+		});
 
 		this.scoreBoard1.draw(this.context);
 		this.scoreBoard2.draw(this.context);
@@ -69,7 +79,9 @@ export default class Game {
 		this.movePaddle(this.player1, p1.keys.up, p1.keys.down);
 		this.movePaddle(this.player2, p2.keys.up, p2.keys.down);
 
-		this.ball.render(this.height, this.width, this.player1, this.player2);
+		this.balls.forEach((ball) => {
+			ball.render(this.height, this.width, this.player1, this.player2);
+		});
 
 		this.scoreBoard1.score = this.player1.score;
 		this.scoreBoard2.score = this.player2.score;
