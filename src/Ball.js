@@ -10,6 +10,7 @@ export default class Ball {
 		this.vx = 0;
 		this.vy = 0;
 		this.size = ball.size;
+		this.paddleCollisionSound = new Audio('sounds/pong-03.wav');
 	}
 	draw(p) {
 		p.beginPath();
@@ -30,6 +31,7 @@ export default class Ball {
 					this.x = player2.x - this.size;
 					this.y = Math.floor(this.y - this.vy + this.vy * k);
 					this.vx = -this.vx;
+					this.paddleCollisionSound.play();
 				}
 			}
 		} else {
@@ -43,6 +45,7 @@ export default class Ball {
 					this.x = player1.x + player1.width;
 					this.y = Math.floor(this.y - this.vy + this.vy * k);
 					this.vx = -this.vx;
+					this.paddleCollisionSound.play();
 				}
 			}
 		}
